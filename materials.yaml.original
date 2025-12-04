@@ -1,0 +1,222 @@
+# Space RPG Economy Supply Chain Database
+# Version: 1.0
+
+materials:
+  # Raw Materials
+  iron_ore:
+    name: "Iron Ore"
+    type: "raw"
+    rarity: "common"
+    mass_kg: 1
+    base_value_credits: 10
+    description: "Crystalline iron deposits found in asteroid belts and planetary crusts."
+
+  silicon_crystal:
+    name: "Silicon Crystal"
+    type: "raw"
+    rarity: "uncommon"
+    mass_kg: 1
+    base_value_credits: 25
+    description: "High-purity crystalline silicon used in electronics and solar cells."
+
+  carbon_fiber:
+    name: "Carbon Fiber"
+    type: "raw"
+    rarity: "rare"
+    mass_kg: 1
+    base_value_credits: 60
+    description: "Synthetic filament material derived from hydrocarbon processing."
+
+  dilithium_crystal:
+    name: "Dilithium Crystal"
+    type: "raw"
+    rarity: "legendary"
+    mass_kg: 1
+    base_value_credits: 5000
+    description: "Rare crystal used to stabilize warp cores. Found only in stellar anomalies."
+
+  # Refined Materials
+  iron_ingot:
+    name: "Iron Ingot"
+    type: "refined"
+    rarity: "common"
+    mass_kg: 4.0
+    base_value_credits: 35
+    description: "Purified iron, ready for structural and mechanical use."
+    crafted_from:
+      iron_ore:
+        quantity: 10
+    crafted_using:
+      refinery:
+        level: 1
+    durability: 80
+    heat_resistance: 1200
+    magnetic: true
+
+  silicon_wafer:
+    name: "Silicon Wafer"
+    type: "refined"
+    rarity: "uncommon"
+    mass_kg: 2.0
+    base_value_credits: 120
+    description: "Thin, polished silicon disc used in microelectronics."
+    crafted_from:
+      silicon_crystal:
+        quantity: 10
+    crafted_using:
+      refinery:
+        level: 5
+    conductivity: "high"
+    fragility: "medium"
+
+  carbon_fiber_sheet:
+    name: "Carbon Fiber Sheet"
+    type: "refined"
+    rarity: "rare"
+    mass_kg: 0.3
+    base_value_credits: 180
+    description: "Lightweight, high-strength composite sheet used in aerospace."
+    crafted_from:
+      carbon_fiber:
+        quantity: 8
+    crafted_using:
+      workbench:
+        level: 1
+    strength_to_mass_ratio: "excellent"
+    corrosion_resistant: true
+
+  dilithium_core:
+    name: "Dilithium Core"
+    type: "refined"
+    rarity: "legendary"
+    mass_kg: 1.5
+    base_value_credits: 25000
+    description: "Stabilized dilithium crystal used in warp drive systems."
+    crafted_from:
+      dilithium_crystal:
+        quantity: 40
+    crafted_using:
+      workbench:
+        level: 20
+    energy_stability: "critical"
+    requires: "quantum calibration"
+
+  # Intermediate Products
+  iron_mechanism:
+    name: "Iron Mechanism"
+    type: "intermediate"
+    rarity: "common"
+    mass_kg: 1.5
+    base_value_credits: 80
+    description: "Precision-machined gear and joint assembly for robotic systems."
+    crafted_from:
+      iron_ingot:
+        quantity: 4
+    durability: 75
+    precision: "high"
+
+  armor_plate:
+    name: "Armor Plate"
+    type: "intermediate"
+    rarity: "common"
+    mass_kg: 6.0
+    base_value_credits: 150
+    description: "Reinforced iron plating for ship and personal armor."
+    crafted_from:
+      iron_ingot:
+        quantity: 20
+    impact_resistance: "high"
+    energy_absorption: "medium"
+
+  structural_frame:
+    name: "Structural Frame"
+    type: "intermediate"
+    rarity: "common"
+    mass_kg: 40
+    base_value_credits: 200
+    description: "Primary load-bearing frame for ships and stations."
+    crafted_from:
+      iron_ingot:
+        quantity: 75
+    load_capacity: "high"
+    flexibility: "low"
+
+  basic_processor:
+    name: "Basic Processor"
+    type: "intermediate"
+    rarity: "uncommon"
+    mass_kg: 0.2
+    base_value_credits: 400
+    description: "Advanced computing unit for system controls"
+    crafted_from:
+      silicon_wafer:
+        quantity: 1
+    processing_power: "extreme"
+    heat_generation: "high"
+
+  solar_panel:
+    name: "Solar Panel"
+    type: "intermediate"
+    rarity: "common"
+    mass_kg: 4.0
+    base_value_credits: 180
+    description: "Photovoltaic array for energy harvesting in solar systems."
+    crafted_from:
+      silicon_wafer:
+        quantity: 8
+      silver_ingot:
+        quantity: 1
+      copper_wire:
+        quantity: 2
+    energy_yield_kW: 1
+    deployable: false
+
+  # Final Products
+  warp_core:
+    name: "Warp Core"
+    type: "final"
+    rarity: "legendary"
+    mass_kg: 25.0
+    base_value_credits: 100000
+    description: "Core reactor enabling faster-than-light travel."
+    crafted_from:
+      dilithium_core:
+        quantity: 1
+      plasma_tube:
+        quantity: 4
+      quantum_stabilizer:
+        quantity: 20
+    function: "Enable warp drive"
+    energy_yield_kW: 1000
+    cooldown_s: 14400
+    maintenance_required: true
+
+  small_ship:
+    name: "Small Ship (Scout Class)"
+    type: "final"
+    rarity: "common"
+    mass_kg: 12000.0
+    base_value_credits: 50000
+    description: "Lightweight, agile vessel for reconnaissance and trade."
+    crafted_from:
+      structural_frame:
+        quantity: 8
+      solar_panel:
+        quantity: 4
+      iron_mechanism:
+        quantity: 10
+      basic_processor:
+        quantity: 4
+      armor_plate:
+        quantity: 20
+      lithium_battery:
+        quantity: 2
+    crafted_using:
+      space_dock:
+        level: 1
+    function: "Exploration, trade, transport"
+    speed: "high"
+    cargo_capacity: 500
+    crew: 1
+    weapons: "laser cannon (1)"
+
